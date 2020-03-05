@@ -1,4 +1,10 @@
-module.exports = function override(config, env) {
-  // do stuff with the webpack config...
-  return config
+const { override, addLessLoader } = require('customize-cra')
+
+module.exports = {
+  webpack: override(
+    addLessLoader({
+      sourceMap: true,
+      modules: true,
+    })
+  )
 }
