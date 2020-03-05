@@ -46,9 +46,12 @@
   },
   "browserslist": {
     "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+      "> 1%",
+      "last 2 versions",
+      "not ie <= 8",
+      "iOS >= 8",
+      "Firefox >= 20",
+      "Android > 4.4"
     ],
     "development": [
       "last 1 chrome version",
@@ -71,10 +74,15 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
+    "cssnano": "^4.1.10",
+    "cssnano-preset-advanced": "^4.0.7",
     "customize-cra": "^0.9.1",
     "husky": "^4.2.3",
     "less-loader": "^5.0.0",
     "lint-staged": "^10.0.8",
+    "postcss-aspect-ratio-mini": "^1.0.1",
+    "postcss-px-to-viewport": "^1.1.1",
+    "postcss-write-svg": "^3.0.1",
     "prettier": "^1.19.1",
     "react-app-rewired": "^2.1.5"
   }
