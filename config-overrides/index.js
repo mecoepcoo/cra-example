@@ -1,7 +1,11 @@
-const { override, addLessLoader, adjustStyleLoaders, addPostcssPlugins } = require('customize-cra')
+const path = require('path')
+const { override, addLessLoader, adjustStyleLoaders, addPostcssPlugins, addWebpackAlias } = require('customize-cra')
 
 module.exports = {
   webpack: override(
+    addWebpackAlias({
+      '@': path.resolve(__dirname, '../src/')
+    }),
     addLessLoader({
       sourceMap: true,
       modules: true,
