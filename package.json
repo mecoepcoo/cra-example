@@ -23,7 +23,25 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "overrides": [
+      {
+        "files": [
+          "src/**/*.ts?(x)"
+        ],
+        "rules": {
+          "semi": [
+            2,
+            "never"
+          ],
+          "quotes": [
+            2,
+            "single"
+          ],
+          "no-extra-semi": 2
+        }
+      }
+    ]
   },
   "browserslist": {
     "production": [
@@ -37,8 +55,25 @@
       "last 1 safari version"
     ]
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{jsx,js,tsx,ts}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
+  },
   "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
     "customize-cra": "^0.9.1",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.8",
+    "prettier": "^1.19.1",
     "react-app-rewired": "^2.1.5"
   }
 }
